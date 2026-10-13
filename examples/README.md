@@ -20,7 +20,7 @@ Settings: seed 46, original FP8 checkpoint, `direction=warm, conversational`, `c
 
 [Listen to the two-voice French conversation](two-distinct-clones-fr.wav).
 
-Speaker 0 uses the author's local French recording; speaker 1 uses the shipped synthetic reference. The four turns request curious, amused, warm and excited delivery. This makes the two-reference example easier to compare than the related synthetic references in the default starter workflow.
+Speaker 0 is conditioned on the author's local Raphaël Quenard reference; speaker 1 is conditioned on `benjamintranie_04.mp3`, a separate Benjamin Tranié recording selected by the author. Both references are recorded French speech. The four turns request curious, amused, warm and excited delivery. The 11.94-second conversation was regenerated as one native dialogue with seed 48; the earlier synthetic-reference version has been replaced. Original reference recordings are not distributed.
 
 [Settings and measurements](two-distinct-settings.json). To reproduce the routing, load the multi-voice workflow and provide your own two references and exact transcripts.
 

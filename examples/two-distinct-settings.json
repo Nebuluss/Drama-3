@@ -1,30 +1,31 @@
 {
-  "offload_calls": 4528,
-  "experts_transferred": 108653,
-  "transferred_GiB": 318.39705061912537,
+  "offload_calls": 4368,
+  "experts_transferred": 54927,
+  "transferred_GiB": 160.95823216438293,
   "staging_capacity_experts": 128,
-  "reference_encode_seconds": 5.88582339999266,
-  "model_load_seconds": 19.363703100010753,
-  "generation_seconds": 66.95899690000806,
-  "generation_peak_allocated_GiB": 25.427500009536743,
-  "generation_peak_reserved_GiB": 25.4375,
-  "process_RAM_GiB": 21.172996520996094,
+  "reference_encode_seconds": 5.684365199995227,
+  "model_load_seconds": 18.549781600013375,
+  "generation_seconds": 46.256079000013415,
+  "generation_peak_allocated_GiB": 25.42886734008789,
+  "generation_peak_reserved_GiB": 25.75,
+  "process_RAM_GiB": 21.365520477294922,
   "checkpoint_revision": "dd64a85cd82e9521f7202610ede97b367fc83946",
   "reference_count": 2,
-  "parts": 4,
+  "parts": 1,
   "streaming": false,
   "text": "<|speaker:0|> [curious] Tu as vraiment créé ces voix sur ton ordinateur ?\n<|speaker:1|> [amused] J'ai utilisé deux références différentes pour créer cette conversation.\n<|speaker:0|> [warm] Alors on peut enfin faire parler nos personnages.\n<|speaker:1|> [excited] Exactement ! À nous de raconter la suite !",
-  "total_seconds": 98.7063181999838,
+  "total_seconds": 75.11099159996957,
   "sample_rate": 44100,
   "audio": "speech.wav",
   "take": "speech.npz",
-  "seed": 47,
+  "seed": 48,
   "finish_reasons": [
-    "eos",
-    "eos",
-    "eos",
     "eos"
   ],
-  "audio_seconds": 10.448979591836734,
-  "frames": 225
+  "audio_seconds": 11.935056689342403,
+  "frames": 257,
+  "reference_description": {
+    "speaker_0": "Locally supplied Raphaël Quenard recording",
+    "speaker_1": "Locally supplied Benjamin Tranié recording (benjamintranie_04.mp3)"
+  }
 }
