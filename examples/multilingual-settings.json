@@ -1,0 +1,64 @@
+{
+  "fr": {
+    "file": "generated-fr-french-reference.wav",
+    "text": "Ce matin, j'ai décidé de ralentir un peu. Un bon café et une conversation tranquille, c'est déjà une belle journée.",
+    "seconds": 7.523265306122449,
+    "seed": 46,
+    "parts": 4,
+    "peak": 0.60504150390625,
+    "RMS": 0.07310869544744492
+  },
+  "es": {
+    "file": "generated-es-french-reference.wav",
+    "text": "Esta mañana he decidido ir un poco más despacio. Un buen café y una conversación tranquila pueden cambiar todo el día.",
+    "seconds": 7.291065759637188,
+    "seed": 46,
+    "parts": 2,
+    "peak": 0.62774658203125,
+    "RMS": 0.08854968845844269
+  },
+  "it": {
+    "file": "generated-it-french-reference.wav",
+    "text": "Questa mattina ho deciso di rallentare un po'. Un buon caffè e una conversazione tranquilla possono cambiare tutta la giornata.",
+    "seconds": 8.080544217687075,
+    "seed": 46,
+    "parts": 2,
+    "peak": 0.443634033203125,
+    "RMS": 0.0675610899925232
+  },
+  "reference": "An 8.35-second local French speech reference supplied by the repository author. Original recording and reference VQ codes are not distributed.",
+  "batch_measurements": {
+    "offload_calls": 9456,
+    "experts_transferred": 193163,
+    "transferred_GiB": 566.045387506485,
+    "staging_capacity_experts": 128,
+    "reference_encode_seconds": 5.828027600015048,
+    "model_load_seconds": 19.568837099999655,
+    "generation_seconds": 129.6088489999529,
+    "generation_peak_allocated_GiB": 25.427500009536743,
+    "generation_peak_reserved_GiB": 25.4375,
+    "process_RAM_GiB": 21.126476287841797,
+    "checkpoint_revision": "dd64a85cd82e9521f7202610ede97b367fc83946",
+    "reference_count": 1,
+    "parts": 8,
+    "streaming": false,
+    "text": "Ce matin, j'ai décidé de ralentir un peu. Un bon café et une conversation tranquille, c'est déjà une belle journée.\nEsta mañana he decidido ir un poco más despacio. Un buen café y una conversación tranquila pueden cambiar todo el día.\nQuesta mattina ho deciso di rallentare un po'. Un buon caffè e una conversazione tranquilla possono cambiare tutta la giornata.",
+    "total_seconds": 161.73985939996783,
+    "sample_rate": 44100,
+    "audio": "speech.wav",
+    "take": "speech.npz",
+    "seed": 46,
+    "finish_reasons": [
+      "eos",
+      "eos",
+      "eos",
+      "eos",
+      "eos",
+      "eos",
+      "eos",
+      "eos"
+    ],
+    "audio_seconds": 22.894875283446712,
+    "frames": 493
+  }
+}

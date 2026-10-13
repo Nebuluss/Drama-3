@@ -1,0 +1,371 @@
+{
+  "id": "e361b173-ea85-4980-b73a-f143bc9a96cd",
+  "revision": 0,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "Drama3FP8Speech",
+      "pos": [
+        960,
+        60
+      ],
+      "size": [
+        520,
+        850
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "voices",
+          "type": "DRAMA3_VOICES",
+          "link": 6
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            1
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "take",
+          "type": "DRAMA3_TAKE",
+          "links": [],
+          "slot_index": 1
+        },
+        {
+          "name": "generation_info",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Drama3FP8Speech"
+      },
+      "widgets_values": [
+        "<|speaker:0|> Hello, are you ready?\n<|speaker:1|> Yes! Let us begin.\n<|speaker:0|> Great, welcome to our conversation.",
+        42,
+        "fixed",
+        0,
+        "",
+        true,
+        "",
+        0.7,
+        0.7,
+        30,
+        "",
+        "auto",
+        300,
+        1,
+        true,
+        1,
+        false
+      ]
+    },
+    {
+      "id": 2,
+      "type": "SaveAudio",
+      "pos": [
+        1560,
+        60
+      ],
+      "size": [
+        420,
+        240
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 1
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveAudio"
+      },
+      "widgets_values": [
+        "audio/Drama3"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "LoadAudio",
+      "pos": [
+        20,
+        40
+      ],
+      "size": [
+        420,
+        240
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            2
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadAudio"
+      },
+      "widgets_values": [
+        "Drama3_demo_reference.wav"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "Drama3Voice",
+      "pos": [
+        470,
+        40
+      ],
+      "size": [
+        420,
+        240
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "DRAMA3_VOICE",
+          "type": "DRAMA3_VOICE",
+          "links": [
+            4
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Drama3Voice"
+      },
+      "widgets_values": [
+        "Hello, this is a local test.",
+        0
+      ]
+    },
+    {
+      "id": 5,
+      "type": "LoadAudio",
+      "pos": [
+        20,
+        360
+      ],
+      "size": [
+        420,
+        240
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            3
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadAudio"
+      },
+      "widgets_values": [
+        "Drama3_demo_reference_2.wav"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "Drama3Voice",
+      "pos": [
+        470,
+        360
+      ],
+      "size": [
+        420,
+        240
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "DRAMA3_VOICE",
+          "type": "DRAMA3_VOICE",
+          "links": [
+            5
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Drama3Voice"
+      },
+      "widgets_values": [
+        "This voice comes from the reference clip.",
+        1
+      ]
+    },
+    {
+      "id": 7,
+      "type": "Drama3Voices",
+      "pos": [
+        480,
+        700
+      ],
+      "size": [
+        420,
+        240
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "voices.voice_0",
+          "type": "DRAMA3_VOICE",
+          "link": 4
+        },
+        {
+          "name": "voices.voice_1",
+          "type": "DRAMA3_VOICE",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "DRAMA3_VOICES",
+          "type": "DRAMA3_VOICES",
+          "links": [
+            6
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Drama3Voices"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 8,
+      "type": "Note",
+      "pos": [
+        60,
+        960
+      ],
+      "size": [
+        520,
+        230
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Note"
+      },
+      "widgets_values": [
+        "Dialogue : une reference + transcription + speaker_id par voix. Utilisez <|speaker:0|>, <|speaker:1|>, etc. dans text (IDs 0 a 15). Ajoutez des entrees au Voice Bank pour plusieurs voix ou plusieurs clips par voix. Les deux demos viennent de voix synthetiques apparentees : utilisez deux voix distinctes pour bien comparer."
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "AUDIO"
+    ],
+    [
+      2,
+      3,
+      0,
+      4,
+      0,
+      "AUDIO"
+    ],
+    [
+      3,
+      5,
+      0,
+      6,
+      0,
+      "AUDIO"
+    ],
+    [
+      4,
+      4,
+      0,
+      7,
+      0,
+      "DRAMA3_VOICE"
+    ],
+    [
+      5,
+      6,
+      0,
+      7,
+      1,
+      "DRAMA3_VOICE"
+    ],
+    [
+      6,
+      7,
+      0,
+      1,
+      0,
+      "DRAMA3_VOICES"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8,
+      "offset": [
+        20,
+        20
+      ]
+    }
+  },
+  "version": 0.4,
+  "last_node_id": 8,
+  "last_link_id": 6
+}

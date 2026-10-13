@@ -1,0 +1,30 @@
+{
+  "offload_calls": 4528,
+  "experts_transferred": 108653,
+  "transferred_GiB": 318.39705061912537,
+  "staging_capacity_experts": 128,
+  "reference_encode_seconds": 5.88582339999266,
+  "model_load_seconds": 19.363703100010753,
+  "generation_seconds": 66.95899690000806,
+  "generation_peak_allocated_GiB": 25.427500009536743,
+  "generation_peak_reserved_GiB": 25.4375,
+  "process_RAM_GiB": 21.172996520996094,
+  "checkpoint_revision": "dd64a85cd82e9521f7202610ede97b367fc83946",
+  "reference_count": 2,
+  "parts": 4,
+  "streaming": false,
+  "text": "<|speaker:0|> [curious] Tu as vraiment créé ces voix sur ton ordinateur ?\n<|speaker:1|> [amused] J'ai utilisé deux références différentes pour créer cette conversation.\n<|speaker:0|> [warm] Alors on peut enfin faire parler nos personnages.\n<|speaker:1|> [excited] Exactement ! À nous de raconter la suite !",
+  "total_seconds": 98.7063181999838,
+  "sample_rate": 44100,
+  "audio": "speech.wav",
+  "take": "speech.npz",
+  "seed": 47,
+  "finish_reasons": [
+    "eos",
+    "eos",
+    "eos",
+    "eos"
+  ],
+  "audio_seconds": 10.448979591836734,
+  "frames": 225
+}

@@ -1,0 +1,234 @@
+{
+  "id": "b9bc8af1-6d1c-48e9-88c3-7f6dcf7929b9",
+  "revision": 0,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "Drama3FP8Speech",
+      "pos": [
+        960,
+        60
+      ],
+      "size": [
+        520,
+        850
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "previous_take",
+          "type": "DRAMA3_TAKE",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            3
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "take",
+          "type": "DRAMA3_TAKE",
+          "links": [],
+          "slot_index": 1
+        },
+        {
+          "name": "generation_info",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Drama3FP8Speech"
+      },
+      "widgets_values": [
+        "Here is a new sentence after that recording.",
+        42,
+        "fixed",
+        0,
+        "",
+        true,
+        "",
+        0.7,
+        0.7,
+        30,
+        "",
+        "auto",
+        300,
+        1,
+        true,
+        1,
+        false
+      ]
+    },
+    {
+      "id": 2,
+      "type": "SaveAudio",
+      "pos": [
+        1550,
+        60
+      ],
+      "size": [
+        420,
+        240
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 3
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveAudio"
+      },
+      "widgets_values": [
+        "audio/Drama3"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "LoadAudio",
+      "pos": [
+        20,
+        60
+      ],
+      "size": [
+        420,
+        240
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            1
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadAudio"
+      },
+      "widgets_values": [
+        "Drama3_demo_reference.wav"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "Drama3TakeFromAudio",
+      "pos": [
+        470,
+        60
+      ],
+      "size": [
+        420,
+        240
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "DRAMA3_TAKE",
+          "type": "DRAMA3_TAKE",
+          "links": [
+            2
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Drama3TakeFromAudio"
+      },
+      "widgets_values": [
+        "Hello, this is a local test."
+      ]
+    },
+    {
+      "id": 5,
+      "type": "Note",
+      "pos": [
+        60,
+        960
+      ],
+      "size": [
+        520,
+        230
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Note"
+      },
+      "widgets_values": [
+        "Utiliser un enregistrement existant comme contexte precedent : audio + transcription exacte. Les codes sont encodes localement. Pour un clonage explicite et stable, ajoutez aussi une reference_audio ou un Voice Bank. Le nouveau son ne contient pas l ancien enregistrement."
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      3,
+      0,
+      4,
+      0,
+      "AUDIO"
+    ],
+    [
+      2,
+      4,
+      0,
+      1,
+      0,
+      "DRAMA3_TAKE"
+    ],
+    [
+      3,
+      1,
+      0,
+      2,
+      0,
+      "AUDIO"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8,
+      "offset": [
+        20,
+        20
+      ]
+    }
+  },
+  "version": 0.4,
+  "last_node_id": 5,
+  "last_link_id": 3
+}

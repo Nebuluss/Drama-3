@@ -1,0 +1,14 @@
+These Fish Audio Materials are licensed under the Fish Audio Community License, Version 1.0. Copyright © 39 AI, INC. All Rights Reserved.
+
+Built with Fish Audio. This is an unofficial ComfyUI integration.
+Upstream: https://github.com/fishaudio/fish-speech
+Pinned upstream commit: 1ff3c3ed2f80d3106a83909dd25b83129c3d816f
+Checkpoint: https://huggingface.co/fishaudio/drama-3
+Pinned checkpoint revision: dd64a85cd82e9521f7202610ede97b367fc83946
+
+Changes to Fish Audio Materials: the runtime/streaming.patch adds an optional
+frame callback to the public Drama 3 generator. The integration stages selected
+original FP8 routed experts from system RAM without converting checkpoint weights.
+ComfyUI nodes, job orchestration, workflows and documentation were added.
+Model weights are not distributed in this repository.
+The example voices are synthetic model outputs, not recordings of real people.

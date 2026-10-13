@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-label="Drama 3 for ComfyUI: original FP8 speech with RAM offloading">
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#111527"/><stop offset="1" stop-color="#25204a"/></linearGradient><linearGradient id="line"><stop stop-color="#a7f3d0"/><stop offset="1" stop-color="#c4b5fd"/></linearGradient></defs>
+<rect width="1280" height="420" rx="24" fill="url(#bg)"/>
+<circle cx="1115" cy="85" r="170" fill="#8b5cf6" opacity=".07"/>
+<text x="65" y="65" fill="#a7f3d0" font-family="Arial,sans-serif" font-size="15" letter-spacing="3">LOCAL SPEECH · ORIGINAL FP8 · RAM OFFLOAD</text>
+<text x="62" y="142" fill="#fff" font-family="Arial,sans-serif" font-weight="700" font-size="64">Drama 3 for ComfyUI</text>
+<text x="65" y="190" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="23">Clone voices. Direct the delivery. Build conversations.</text>
+<path d="M65 239H1215" stroke="url(#line)" stroke-width="2" opacity=".45"/>
+<g font-family="Arial,sans-serif" font-size="18" fill="#f1f5f9">
+<rect x="65" y="267" width="260" height="64" rx="12" fill="#ffffff" opacity=".06"/><text x="86" y="306">Voice references + dialogue</text>
+<rect x="344" y="267" width="260" height="64" rx="12" fill="#ffffff" opacity=".06"/><text x="366" y="306">Cues + long scripts</text>
+<rect x="623" y="267" width="260" height="64" rx="12" fill="#ffffff" opacity=".06"/><text x="645" y="306">Takes + variations</text>
+<rect x="902" y="267" width="310" height="64" rx="12" fill="#ffffff" opacity=".06"/><text x="924" y="306">Progressive audio preview</text>
+</g>
+<text x="65" y="382" fill="#94a3b8" font-family="Arial,sans-serif" font-size="15">Unofficial integration · Built with Fish Audio · Validated on RTX 5090 32 GB</text>
+</svg>

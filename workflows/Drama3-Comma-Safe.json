@@ -1,0 +1,142 @@
+{
+  "id": "e91b3f43-85d1-4ea8-81b6-2540fac12aba",
+  "revision": 0,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "Drama3FP8Speech",
+      "pos": [
+        60,
+        60
+      ],
+      "size": [
+        520,
+        850
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            1
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "take",
+          "type": "DRAMA3_TAKE",
+          "links": [],
+          "slot_index": 1
+        },
+        {
+          "name": "generation_info",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Drama3FP8Speech"
+      },
+      "widgets_values": [
+        "Bonjour, je teste le clonage de voix, et cette phrase doit aller jusqu au bout.",
+        42,
+        "fixed",
+        0,
+        "",
+        true,
+        "",
+        0.7,
+        0.7,
+        30,
+        "",
+        "clauses",
+        300,
+        1,
+        true,
+        1,
+        false
+      ]
+    },
+    {
+      "id": 2,
+      "type": "SaveAudio",
+      "pos": [
+        680,
+        60
+      ],
+      "size": [
+        420,
+        240
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 1
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveAudio"
+      },
+      "widgets_values": [
+        "audio/Drama3"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "Note",
+      "pos": [
+        60,
+        960
+      ],
+      "size": [
+        520,
+        230
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Note"
+      },
+      "widgets_values": [
+        "Contournement des arrets prematures : clauses genere chaque proposition separement aux virgules et ponctuations, puis assemble les sons. Toutes les propositions sont envoyees au modele, meme s il termine une partie trop tot. Cela peut rendre les pauses et raccords plus audibles. Ajoutez reference_audio + reference_text pour cloner votre voix. Ce mode ne garantit pas que le modele prononce chaque mot a l interieur de chaque proposition."
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "AUDIO"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8,
+      "offset": [
+        20,
+        20
+      ]
+    }
+  },
+  "version": 0.4,
+  "last_node_id": 3,
+  "last_link_id": 1
+}

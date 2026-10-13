@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+runtime.json
+.venv/
+local/
+*.log
+*.safetensors
+*.pth
+.git-credentials

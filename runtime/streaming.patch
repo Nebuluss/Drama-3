@@ -1,0 +1,33 @@
+diff --git a/fish_speech/models/text2semantic/fish_omni/generate.py b/fish_speech/models/text2semantic/fish_omni/generate.py
+index 745e0d3..828c422 100644
+--- a/fish_speech/models/text2semantic/fish_omni/generate.py
++++ b/fish_speech/models/text2semantic/fish_omni/generate.py
+@@ -201,6 +201,8 @@ def generate_drama3(
+     top_k: int = DEFAULT_TOP_K,
+     top_p: float = DEFAULT_TOP_P,
+     prefill_chunk_size: int = DRAMA3_PREFILL_CHUNK_SIZE,
++    frame_callback=None,
++    stream_interval: int = 64,
+ ) -> tuple[torch.Tensor, FinishReason]:
+     """Sample frames after the prompt rows; returns CPU [frames, 1 + N] without EOS.
+ 
+@@ -277,13 +279,18 @@ def generate_drama3(
+             break
+         frames[position + 1] = sampled[0]
+         produced += 1
++        if frame_callback is not None and produced % stream_interval == 0:
++            frame_callback(frames[prompt_rows : prompt_rows + produced].cpu())
+         if graphs is None and step + 1 < max_new_tokens:
+             embeddings = tower.embed_backbone(sampled, backbone.embed(sampled[:, 0]))
+             hidden = backbone(
+                 inputs_embeds=embeddings[None],
+                 input_pos=positions[position + 1 : position + 2],
+             )[0].to(tower.device)
+-    return frames[prompt_rows : prompt_rows + produced].cpu(), finish_reason
++    result = frames[prompt_rows : prompt_rows + produced].cpu()
++    if frame_callback is not None and produced % stream_interval:
++        frame_callback(result)
++    return result, finish_reason
+ 
+ 
+ def ensure_drama3_caches(model: FishOmniModel, capacity: int) -> None:
