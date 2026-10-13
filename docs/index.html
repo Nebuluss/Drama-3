@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Drama 3 · Listen to the voices</title>
+<meta name="description" content="Listen to local Drama 3 voice cloning, multilingual speech, two-reference dialogue and delivery examples for ComfyUI.">
+<style>
+:root{color-scheme:dark;--bg:#101321;--panel:#1b2033;--border:#333c56;--muted:#b4bfd5;--ink:#f4f7ff;--accent:#a7f3d0}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 85% 0,#352657 0,transparent 48%),var(--bg);color:var(--ink);font:16px/1.55 system-ui,Segoe UI,sans-serif;min-height:100vh}a{color:var(--accent)}main{max-width:1120px;margin:auto;padding:44px 24px 60px}nav{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:42px}nav a{text-decoration:none}nav strong{letter-spacing:.14em;font-size:13px}.hero{max-width:850px;margin-bottom:26px}.eyebrow{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}h1{font-size:clamp(38px,6vw,64px);line-height:1.08;letter-spacing:-.04em;margin:14px 0 18px}.intro{font-size:19px;max-width:720px;color:var(--muted)}.pills{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0}.pill{border:1px solid var(--border);padding:5px 11px;border-radius:999px;color:var(--muted);font-size:13px}.filters{display:flex;gap:8px;flex-wrap:wrap;margin:30px 0 18px}button{font:inherit;border:1px solid var(--border);border-radius:9px;padding:8px 14px;background:transparent;color:var(--muted);cursor:pointer}button[aria-pressed=true]{background:var(--accent);color:#10271f;border-color:var(--accent)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.card{border:1px solid var(--border);border-radius:16px;background:linear-gradient(130deg,#20263b,#181c2d);padding:24px;display:flex;flex-direction:column;gap:12px}.card h2{margin:0;font-size:27px;line-height:1.15;letter-spacing:-.02em}.script{color:var(--muted);margin:0;flex:1;min-height:78px;font-size:15px}audio{width:100%;height:42px;margin-top:6px}.download{font-size:13px;text-decoration:none;align-self:flex-start}.notes{margin-top:28px;border-top:1px solid var(--border);padding-top:22px;color:var(--muted);font-size:13px}.notes p{max-width:900px}.notes a{white-space:nowrap}.card[hidden]{display:none}@media(max-width:650px){main{padding:24px 16px 36px}nav{margin-bottom:30px}.grid{grid-template-columns:1fr}.card{padding:21px}.script{min-height:0}h1{font-size:42px}}
+</style></head><body><main>
+<nav><strong>DRAMA 3 / COMFYUI</strong><a href="https://github.com/Nebuluss/Drama-3">View the project ↗</a></nav>
+<header class="hero"><div class="eyebrow">Audio demonstrations</div><h1>Listen to the voices.</h1><p class="intro">Multilingual speech, two independent voice references and expressive delivery — generated locally with the original FP8 checkpoint.</p><div class="pills"><span class="pill">RTX 5090 · 32 GB</span><span class="pill">Original FP8</span><span class="pill">AI-generated speech</span></div></header>
+<div class="filters" role="group" aria-label="Filter audio examples"><button data-filter="all" aria-pressed="true">All examples</button><button data-filter="multilingual" aria-pressed="false">Multilingual</button><button data-filter="dialogue" aria-pressed="false">Two voices</button><button data-filter="delivery" aria-pressed="false">Delivery cues</button></div>
+<section class="grid" aria-label="Audio examples"><article id="fr" class="card" data-group="multilingual">
+<div class="eyebrow">French reference → French</div><h2>Français</h2>
+<p class="script">Ce matin, j&#x27;ai décidé de ralentir un peu. Un bon café et une conversation tranquille, c&#x27;est déjà une belle journée.</p>
+<audio controls preload="none" aria-label="Play Français demo"><source src="audio/generated-fr-french-reference.wav" type="audio/wav"></audio>
+<a class="download" href="audio/generated-fr-french-reference.wav" download>Download WAV <span aria-hidden="true">↗</span></a></article>
+<article id="es" class="card" data-group="multilingual">
+<div class="eyebrow">French reference → Spanish</div><h2>Español</h2>
+<p class="script">Esta mañana he decidido ir un poco más despacio. Un buen café y una conversación tranquila pueden cambiar todo el día.</p>
+<audio controls preload="none" aria-label="Play Español demo"><source src="audio/generated-es-french-reference.wav" type="audio/wav"></audio>
+<a class="download" href="audio/generated-es-french-reference.wav" download>Download WAV <span aria-hidden="true">↗</span></a></article>
+<article id="it" class="card" data-group="multilingual">
+<div class="eyebrow">French reference → Italian</div><h2>Italiano</h2>
+<p class="script">Questa mattina ho deciso di rallentare un po&#x27;. Un buon caffè e una conversazione tranquilla possono cambiare tutta la giornata.</p>
+<audio controls preload="none" aria-label="Play Italiano demo"><source src="audio/generated-it-french-reference.wav" type="audio/wav"></audio>
+<a class="download" href="audio/generated-it-french-reference.wav" download>Download WAV <span aria-hidden="true">↗</span></a></article>
+<article id="duo" class="card" data-group="dialogue">
+<div class="eyebrow">French dialogue · Quenard + Tranié references</div><h2>Two recorded reference voices</h2>
+<p class="script">Voice 0 uses the local Quenard excerpt. Voice 1 uses benjamintranie_04.mp3. Four speaker turns are generated together.</p>
+<audio controls preload="none" aria-label="Play Two recorded reference voices demo"><source src="audio/two-distinct-clones-fr.wav" type="audio/wav"></audio>
+<a class="download" href="audio/two-distinct-clones-fr.wav" download>Download WAV <span aria-hidden="true">↗</span></a></article>
+<article id="warm" class="card" data-group="delivery">
+<div class="eyebrow">Requested delivery cue</div><h2>Warm / cheerful</h2>
+<p class="script">Hello, welcome back.</p>
+<audio controls preload="none" aria-label="Play Warm / cheerful demo"><source src="audio/mood-warm.wav" type="audio/wav"></audio>
+<a class="download" href="audio/mood-warm.wav" download>Download WAV <span aria-hidden="true">↗</span></a></article>
+<article id="angry" class="card" data-group="delivery">
+<div class="eyebrow">Requested delivery cue</div><h2>Angry</h2>
+<p class="script">You are late again!</p>
+<audio controls preload="none" aria-label="Play Angry demo"><source src="audio/mood-angry.wav" type="audio/wav"></audio>
+<a class="download" href="audio/mood-angry.wav" download>Download WAV <span aria-hidden="true">↗</span></a></article>
+<article id="sad" class="card" data-group="delivery">
+<div class="eyebrow">Requested delivery cue</div><h2>Sad / disappointed</h2>
+<p class="script">I am sorry about that.</p>
+<audio controls preload="none" aria-label="Play Sad / disappointed demo"><source src="audio/mood-sad.wav" type="audio/wav"></audio>
+<a class="download" href="audio/mood-sad.wav" download>Download WAV <span aria-hidden="true">↗</span></a></article>
+<article id="whisper" class="card" data-group="delivery">
+<div class="eyebrow">Requested delivery cue</div><h2>Whisper</h2>
+<p class="script">It is fine. Come inside.</p>
+<audio controls preload="none" aria-label="Play Whisper demo"><source src="audio/mood-whisper.wav" type="audio/wav"></audio>
+<a class="download" href="audio/mood-whisper.wav" download>Download WAV <span aria-hidden="true">↗</span></a></article></section>
+<footer class="notes"><p>These are generated speech examples, not original statements by a speaker or a measured cloning-quality benchmark. The multilingual and two-voice examples use reference recordings supplied locally by the repository author. Original reference recordings are not hosted here. Delivery labels name the requested cues.</p><p><a href="https://github.com/Nebuluss/Drama-3/blob/main/examples/README.md">Texts, settings and measurements</a> · <a href="https://github.com/Nebuluss/Drama-3/tree/main/workflows">16 ComfyUI workflows</a> · <a href="https://github.com/Nebuluss/Drama-3/blob/main/LICENSE">License</a></p><p>Unofficial integration. Built with Fish Audio.</p></footer>
+</main><script>
+const players=[...document.querySelectorAll('audio')];
+players.forEach(player=>player.addEventListener('play',()=>players.forEach(other=>{if(other!==player)other.pause()})));
+document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{const group=button.dataset.filter;document.querySelectorAll('[data-filter]').forEach(other=>other.setAttribute('aria-pressed',String(other===button)));document.querySelectorAll('.card').forEach(card=>{card.hidden=group!=='all'&&card.dataset.group!==group;if(card.hidden)card.querySelector('audio').pause()});}));
+</script></body></html>

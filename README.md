@@ -6,6 +6,20 @@ Run [Fish Audio Drama 3](https://huggingface.co/fishaudio/drama-3) locally in Co
 
 **Unofficial integration. Built with Fish Audio.** Experimental Windows implementation, validated with ComfyUI 0.39.0 and frontend 1.55.17.
 
+## Listen to the examples
+
+**[▶ Open the audio gallery — play directly in your browser](https://nebuluss.github.io/Drama-3/)**
+
+| Example | Listen |
+|---|---|
+| French voice cloning | [▶ Français](https://nebuluss.github.io/Drama-3/#fr) |
+| Spanish from a French reference | [▶ Español](https://nebuluss.github.io/Drama-3/#es) |
+| Italian from a French reference | [▶ Italiano](https://nebuluss.github.io/Drama-3/#it) |
+| Two recorded reference voices | [▶ French dialogue: Quenard / Tranié references](https://nebuluss.github.io/Drama-3/#duo) |
+| Delivery cues | [▶ Warm](https://nebuluss.github.io/Drama-3/#warm) · [▶ Angry](https://nebuluss.github.io/Drama-3/#angry) · [▶ Sad](https://nebuluss.github.io/Drama-3/#sad) · [▶ Whisper](https://nebuluss.github.io/Drama-3/#whisper) |
+
+All examples are **AI-generated speech**. The gallery has audio players and WAV downloads. [Texts, settings and measurements](examples/README.md).
+
 ## What you can do
 
 | Capability | How |

@@ -1,5 +1,7 @@
 # Generated speech examples
 
+**[▶ Play all examples in the audio gallery](https://nebuluss.github.io/Drama-3/)** — multilingual speech, the corrected two-reference dialogue, and delivery cues.
+
 All audio here is **AI-generated speech**. These are demonstrations of the local pipeline, not original statements by a speaker or a measured cloning-quality benchmark. WAV files are 44.1 kHz mono, 16-bit PCM.
 
 ## French, Spanish and Italian from a French reference

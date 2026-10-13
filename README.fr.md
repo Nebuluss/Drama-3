@@ -2,6 +2,8 @@
 
 Integration ComfyUI non officielle de Fish Audio Drama 3, avec les poids FP8 d'origine et une partie des experts en RAM. Testee sur RTX 5090 32 Go.
 
+**[▶ Ecouter les exemples dans la galerie audio](https://nebuluss.github.io/Drama-3/)**
+
 **Built with Fish Audio.** [Documentation complete](README.md) · [Exemples audio](examples/README.md) · [Workflows](workflows)
 
 1. Installez le dossier dans `ComfyUI/custom_nodes/ComfyUI-Drama3-FP8`.
