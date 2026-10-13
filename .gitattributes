@@ -1,0 +1,2 @@
+# Blank diff context lines carry significant whitespace markers.
+*.patch -whitespace
