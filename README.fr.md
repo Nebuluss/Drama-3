@@ -13,6 +13,8 @@ Integration ComfyUI non officielle de Fish Audio Drama 3, avec les poids FP8 d'o
 
 Pour cloner une voix, `reference_text` doit transcrire exactement `reference_audio`. Le champ `text` contient les nouvelles phrases. Pour plusieurs voix, utilisez Voice Reference et Voice Bank, puis les balises `<|speaker:0|>`, `<|speaker:1|>`, etc.
 
+Pour un dialogue, choisissez `chunk_mode=speakers` : chaque replique utilise uniquement les references de son personnage, sans historique audio des autres voix, puis les repliques sont assemblees. Le modele est charge une seule fois. Le mode `single` peut s'arreter apres la premiere replique meme avec une fin EOS normale.
+
 Les indications entre crochets et le champ `direction` guident le jeu. La langue depend du texte. Des exemples francais, espagnol et italien sont fournis, ainsi qu'un dialogue avec deux references et des variations de jeu.
 
 Si le modele s'arrete apres une virgule, essayez `chunk_mode=clauses`. Chaque proposition reste envoyee au modele meme si la precedente se termine tot. Les pauses peuvent devenir plus audibles. `max_frames=0` choisit une limite automatique ; une limite atteinte peut couper la parole.

@@ -94,6 +94,17 @@ def split_clauses(text):
     return result
 
 
+def build_speaker_prompt(chunk, tokenizer, config, voices):
+    segments = parse_speaker_segments(chunk)
+    if len(segments) != 1:
+        raise ValueError('Speaker mode requires one speaker per part.')
+    speaker, _ = segments[0]
+    references = [ref for ref in voices if ref['speaker_id'] == int(speaker)]
+    return build_drama3_prompt(chunk, tokenizer, config,
+        [f"<|speaker:{speaker}|> {ref['text']}" for ref in references],
+        [torch.from_numpy(ref['codes']).long() for ref in references])
+
+
 def run_job(job, output, budget):
     output.parent.mkdir(parents=True, exist_ok=True)
     started = time.perf_counter()
@@ -136,7 +147,8 @@ def run_job(job, output, budget):
     loaded = time.perf_counter()
     text = job['text']
     mode = job.get('chunk_mode', 'auto')
-    lines = split_clauses(text) if mode == 'clauses' else text.splitlines() if mode == 'lines' else [text]
+    lines = ([f'<|speaker:{speaker}|> {body.strip()}' for speaker, body in parse_speaker_segments(text)]
+             if mode == 'speakers' else split_clauses(text) if mode == 'clauses' else text.splitlines() if mode == 'lines' else [text])
     chunks = [text] if mode == 'single' else [part for line in lines for part in split_drama3_text(line, max_bytes=job.get('chunk_bytes', 300))]
     if not chunks or not text.strip():
         raise ValueError('Enter some text to speak.')
@@ -156,9 +168,10 @@ def run_job(job, output, budget):
         turns, samples, finishes = [], [], []
         for index, chunk in enumerate(chunks):
             emit(stage=f'Take {variation+1}/{variants} - part {index+1}/{len(chunks)}', progress=(variation*len(chunks)+index)/(variants*len(chunks)))
-            for candidates in history.candidates():
+            for candidates in ([()] if mode == 'speakers' else history.candidates()):
                 try:
-                    prompt = build_drama3_prompt(chunk, model.tokenizer, model.config, prompt_texts, prompt_codes, history=candidates)
+                    prompt = (build_speaker_prompt(chunk, model.tokenizer, model.config, voices) if mode == 'speakers' else
+                              build_drama3_prompt(chunk, model.tokenizer, model.config, prompt_texts, prompt_codes, history=candidates))
                     break
                 except Drama3PromptTooLongError as exc:
                     error = exc
@@ -196,7 +209,9 @@ def run_job(job, output, budget):
     stats = model.offload_pool.stats() | {'reference_encode_seconds': encoded-started, 'model_load_seconds': loaded-encoded,
         'generation_seconds': generated-loaded, 'generation_peak_allocated_GiB': torch.cuda.max_memory_allocated()/2**30,
         'generation_peak_reserved_GiB': torch.cuda.max_memory_reserved()/2**30, 'process_RAM_GiB': psutil.Process().memory_info().rss/2**30,
-        'checkpoint_revision': revision, 'reference_count': len(voices), 'parts': len(chunks), 'streaming': streaming, 'text': job['text']}
+        'checkpoint_revision': revision, 'reference_count': len(voices), 'parts': len(chunks), 'chunk_mode': mode,
+        'part_speakers': [speaker for chunk in chunks for speaker, _ in parse_speaker_segments(chunk)],
+        'streaming': streaming, 'text': job['text']}
     del model
     gc.collect()
     torch.cuda.empty_cache()

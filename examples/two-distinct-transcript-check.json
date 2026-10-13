@@ -1,0 +1,37 @@
+{
+  "method": "Local faster-whisper large-v3, CPU int8, French, beam size 3, no initial prompt. ASR is approximate and does not score voice identity.",
+  "old_single_prompt": [
+    {
+      "start": 0.0,
+      "end": 2.0,
+      "text": " Tu as vraiment créé ces voix sur ton ordinateur ?"
+    }
+  ],
+  "replacement_speaker_turns": [
+    {
+      "start": 0.0,
+      "end": 2.18,
+      "text": " Tu as vraiment créé ces voix sur ton ordinateur ?"
+    },
+    {
+      "start": 2.18,
+      "end": 4.7,
+      "text": " J'ai utilisé deux références différentes pour créer cette conversation."
+    },
+    {
+      "start": 5.0,
+      "end": 7.16,
+      "text": " Alors on peut enfin faire parler nos personnages ?"
+    },
+    {
+      "start": 7.16,
+      "end": 8.38,
+      "text": " Exactement !"
+    },
+    {
+      "start": 8.38,
+      "end": 9.64,
+      "text": " À nous de raconter la suite !"
+    }
+  ]
+}

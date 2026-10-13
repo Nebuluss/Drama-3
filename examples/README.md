@@ -22,7 +22,9 @@ Settings: seed 46, original FP8 checkpoint, `direction=warm, conversational`, `c
 
 [Listen to the two-voice French conversation](two-distinct-clones-fr.wav).
 
-Speaker 0 is conditioned on the author's local Raphaël Quenard reference; speaker 1 is conditioned on `benjamintranie_04.mp3`, a separate Benjamin Tranié recording selected by the author. Both references are recorded French speech. The four turns request curious, amused, warm and excited delivery. The 11.94-second conversation was regenerated as one native dialogue with seed 48; the earlier synthetic-reference version has been replaced. Original reference recordings are not distributed.
+Speaker 0 is conditioned on the author's local Raphaël Quenard reference; speaker 1 is conditioned on `benjamintranie_04.mp3`, a separate Benjamin Tranié recording selected by the author. Each of the four turns is generated separately with **only its matching reference**, then concatenated (`chunk_mode=speakers`, seed 48). The model is loaded once. Original reference recordings are not distributed.
+
+The previous single-prompt file spoke only the first reply, despite ending with EOS. It has been replaced. Local speech recognition recovered all four replies from the new 9.61-second file, including “À nous de raconter la suite !”. [Transcription comparison](two-distinct-transcript-check.json). This checks script coverage, not cloning similarity. The four turns ended with EOS; total runtime was 74.93 seconds and peak PyTorch allocation was 25.43 GiB.
 
 [Settings and measurements](two-distinct-settings.json). To reproduce the routing, load the multi-voice workflow and provide your own two references and exact transcripts.
 

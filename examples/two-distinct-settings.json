@@ -1,31 +1,42 @@
 {
-  "offload_calls": 4368,
-  "experts_transferred": 54927,
-  "transferred_GiB": 160.95823216438293,
+  "offload_calls": 3824,
+  "experts_transferred": 69124,
+  "transferred_GiB": 202.56116008758545,
   "staging_capacity_experts": 128,
-  "reference_encode_seconds": 5.684365199995227,
-  "model_load_seconds": 18.549781600013375,
-  "generation_seconds": 46.256079000013415,
+  "reference_encode_seconds": 5.255349899991415,
+  "model_load_seconds": 18.849066599970683,
+  "generation_seconds": 45.912293900037184,
   "generation_peak_allocated_GiB": 25.42886734008789,
-  "generation_peak_reserved_GiB": 25.75,
-  "process_RAM_GiB": 21.365520477294922,
+  "generation_peak_reserved_GiB": 25.734375,
+  "process_RAM_GiB": 21.34264373779297,
   "checkpoint_revision": "dd64a85cd82e9521f7202610ede97b367fc83946",
   "reference_count": 2,
-  "parts": 1,
+  "parts": 4,
+  "chunk_mode": "speakers",
+  "part_speakers": [
+    "0",
+    "1",
+    "0",
+    "1"
+  ],
   "streaming": false,
   "text": "<|speaker:0|> [curious] Tu as vraiment créé ces voix sur ton ordinateur ?\n<|speaker:1|> [amused] J'ai utilisé deux références différentes pour créer cette conversation.\n<|speaker:0|> [warm] Alors on peut enfin faire parler nos personnages.\n<|speaker:1|> [excited] Exactement ! À nous de raconter la suite !",
-  "total_seconds": 75.11099159996957,
+  "total_seconds": 74.92587559996173,
   "sample_rate": 44100,
-  "audio": "speech.wav",
-  "take": "speech.npz",
+  "audio": "two-distinct-clones-fr.wav",
   "seed": 48,
   "finish_reasons": [
+    "eos",
+    "eos",
+    "eos",
     "eos"
   ],
-  "audio_seconds": 11.935056689342403,
-  "frames": 257,
+  "audio_seconds": 9.613061224489796,
+  "frames": 207,
   "reference_description": {
     "speaker_0": "Locally supplied Raphaël Quenard recording",
     "speaker_1": "Locally supplied Benjamin Tranié recording (benjamintranie_04.mp3)"
-  }
+  },
+  "generation_method": "Four separate turns, each with only its own speaker references and no prior audio history, concatenated in order. One model load.",
+  "content_validation": "All four replies were recovered by local faster-whisper large-v3, CPU int8. This checks spoken content, not speaker similarity."
 }

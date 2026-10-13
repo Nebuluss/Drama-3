@@ -60,7 +60,7 @@
         0.7,
         30,
         "",
-        "auto",
+        "speakers",
         300,
         1,
         true,
@@ -300,7 +300,7 @@
         "Node name for S&R": "Note"
       },
       "widgets_values": [
-        "Dialogue : une reference + transcription + speaker_id par voix. Utilisez <|speaker:0|>, <|speaker:1|>, etc. dans text (IDs 0 a 15). Ajoutez des entrees au Voice Bank pour plusieurs voix ou plusieurs clips par voix. Les deux demos viennent de voix synthetiques apparentees : utilisez deux voix distinctes pour bien comparer."
+        "Dialogue : une reference + transcription + speaker_id par voix. Utilisez <|speaker:0|>, <|speaker:1|>, etc. dans text (IDs 0 a 15). Ajoutez des entrees au Voice Bank pour plusieurs voix ou plusieurs clips par voix. Les deux demos viennent de voix synthetiques apparentees : utilisez deux voix distinctes pour bien comparer.\nMode speakers : chaque replique utilise seulement les references de son speaker_id, sans historique audio des autres personnages. Les repliques sont ensuite assemblees. Le mode single peut omettre les repliques suivantes meme avec EOS."
       ]
     }
   ],

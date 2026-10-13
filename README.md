@@ -27,7 +27,7 @@ All examples are **AI-generated speech**. The gallery has audio players and WAV 
 | Text to speech and multilingual scripts | Write the text in the desired language |
 | Voice cloning | Connect reference audio and its exact transcript |
 | Multiple voice references | Voice Reference → Voice Bank → Speech; speaker IDs 0–15 |
-| Dialogue | Use `<\|speaker:0\|>`, `<\|speaker:1\|>`, etc. |
+| Dialogue | Use `<\|speaker:0\|>`, `<\|speaker:1\|>`, etc. with `chunk_mode=speakers` to generate each turn from its own references |
 | Emotion and delivery | Natural-language `[cues]`, `direction`, `<whisper>` and `<emphasis>` |
 | Long scripts | Sentence-aware automatic chunking, or one part per line |
 | Early-stop workaround at commas | `chunk_mode=clauses` queues each clause separately |
@@ -97,6 +97,7 @@ For each Voice Reference, provide the clip's **actual words** and its speaker ID
 
 - **max_frames** limits each part, not the whole script. `0` selects 600 frames per part for a multi-part script, or 2048 for one part. 256 frames is about 12 seconds. A `length` finish reason means the cap was reached; raise it if speech is truncated.
 - **chunk_mode**: `auto` uses the upstream sentence-aware splitter; `single` keeps the whole prompt; `lines` also breaks at newlines; `clauses` also separates commas and punctuation while protecting cues, paired tags and decimals. Separate clauses can introduce more audible pauses and seams. This workaround cannot prevent omissions within a clause.
+- **Dialogue**: `chunk_mode=speakers` queues every speaker-tagged turn separately, using only the matching reference clips and no previous conversation audio. The parts are concatenated; the model is loaded once. This avoids losing later turns when a whole-dialogue request stops early. A speaker without a matching reference uses unconditioned TTS. `single` remains available, but EOS alone does not prove the entire script was spoken.
 - **history_turns** retains recent parts in addition to the first. Old history is pruned to fit the upstream prompt limit. `use_history=False` reuses a saved take's reference bank while starting fresh.
 - **variations** increments the seed and returns separate audio/take outputs. Save Audio writes each variation separately. More variations take proportionally more generation time.
 - **streaming** decodes blocks of 64 frames, about 3 seconds of speech. Loading and prefill still happen first. It is progressive playback, **not guaranteed real-time playback**: you may wait between blocks. Decoder windows retain 128 frames of context to bound memory; long streams can differ slightly from decoding the entire utterance at once.
