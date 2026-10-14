@@ -1,5 +1,5 @@
 {
-  "id": "198d46c8-74c4-465e-81e5-dd18947dcd1a",
+  "id": "6322df12-5830-4d92-92e5-a1dcba682a6f",
   "revision": 0,
   "nodes": [
     {
@@ -147,7 +147,7 @@
       ],
       "size": [
         880,
-        260
+        340
       ],
       "flags": {},
       "order": 5,
@@ -158,8 +158,9 @@
         "Node name for S&R": "Note"
       },
       "widgets_values": [
-        "1. Choisissez votre reference dans Load Audio. Le MEME audio va a Whisper et a Drama 3.\n2. Load Whisper (mtb) utilise large, deja present dans models/whisper/whisper-large. download_missing=False : aucun telechargement.\n3. Audio To Text (mtb) transcrit la reference. Sa premiere sortie STRING va a reference_text, PAS au champ text.\n4. Ecrivez les NOUVEAUX mots a prononcer dans text du node Drama 3.\nlanguage=auto detecte la langue ; choisissez fr pour imposer une reference francaise.\nWhisper Model Loader (WanVideoWrapper) est un encodeur audio pour video, sans sortie de transcription. Les nodes de timing et Whisper to Text (LLM Ready) ne sont pas necessaires ici.\nPour refaire ces connexions manuellement : clic droit sur Drama 3 > Convert Widget to Input > reference_text.\nLe runtime est celui configure par install.ps1 (runtime.json). Si max_frames=0 est refuse ou si le runtime vide pointe vers le dossier ComfyUI, redemarrez completement ComfyUI pour charger la version installee."
-      ]
+        "1. Choose your reference in Load Audio. The SAME audio feeds Whisper and Drama 3.\n2. Load Whisper (mtb) uses the full large checkpoint in models/whisper/whisper-large. download_missing=False disables downloads.\n3. Audio To Text (mtb) transcribes the reference. Its first STRING output feeds reference_text, NOT text.\n4. Write the NEW words to generate in the Drama 3 text field.\nlanguage=auto detects the reference language; select fr to force French. Timestamps are disabled.\nWhisper Model Loader (WanVideoWrapper) supplies video-conditioning features, not a transcript. Timing nodes and Whisper to Text (LLM Ready) are not needed here.\nTo wire reference_text manually: right-click Drama 3 > Convert Widget to Input > reference_text.\nAfter updating Python nodes, fully restart ComfyUI, then reload this workflow. Refreshing the browser alone does not load new node code.\nThe runtime uses your install.ps1 configuration (runtime.json). If max_frames=0 is rejected or a blank runtime resolves to the ComfyUI directory, restart ComfyUI to load the updated node."
+      ],
+      "title": "Whisper voice cloning - setup"
     },
     {
       "id": 5,
@@ -243,6 +244,30 @@
         "auto",
         false
       ]
+    },
+    {
+      "id": 7,
+      "type": "Note",
+      "title": "Delivery instructions - copyable examples",
+      "pos": [
+        1000,
+        970
+      ],
+      "size": [
+        720,
+        470
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Note"
+      },
+      "widgets_values": [
+        "DIRECTION FIELD - paste one example:\nwarm, conversational, relaxed pace\ncalm narrator, clear diction, measured pace\nexcited, playful, energetic\nsad, restrained, speaking softly\nangry, tense, firm delivery\n\nTEXT FIELD - cues next to the words to speak:\n[warm] It is good to see you again.\n[amused] You really did that?\n[angry] I asked you to wait!\n<whisper>Keep this between us.</whisper>\n\nUse direction for delivery across the generated parts; use inline cues to guide individual lines. Speech language follows the text, so these cues can also accompany French, Spanish or Italian dialogue.\nreference_text contains only the words actually spoken in the reference clip. Put new delivery instructions in direction or text. Cue strength varies with the reference and model output."
+      ]
     }
   ],
   "links": [
@@ -299,6 +324,6 @@
     }
   },
   "version": 0.4,
-  "last_node_id": 6,
+  "last_node_id": 7,
   "last_link_id": 5
 }
