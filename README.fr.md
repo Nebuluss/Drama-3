@@ -23,6 +23,8 @@ Les indications entre crochets et le champ `direction` guident le jeu. La langue
 
 Si le modele s'arrete apres une virgule, essayez `chunk_mode=clauses`. Chaque proposition reste envoyee au modele meme si la precedente se termine tot. Les pauses peuvent devenir plus audibles. `max_frames=0` choisit une limite automatique ; une limite atteinte peut couper la parole.
 
+Pour un monologue plus fluide, commencez par `chunk_mode=auto` et `chunk_bytes=300`. Le mode `clauses` coupe aussi aux points, deux-points, points d'interrogation/exclamation et retours a la ligne : gardez-le pour depanner les arrets prematures. Le workflow Whisper utilise `auto` par defaut.
+
 `streaming=True` active la previsualisation progressive ; cliquez Enable live listening dans le node. Le chargement reste necessaire et la lecture peut attendre entre les blocs.
 
 Activez `streaming=True` **avant Run**. Le bouton Enable live listening autorise seulement la lecture ; il ne change pas une generation deja lancee. Avec `streaming=False`, le lecteur live ne recoit aucun bloc et le fichier final arrive a la fin.

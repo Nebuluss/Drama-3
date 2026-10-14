@@ -1,5 +1,5 @@
 {
-  "id": "6322df12-5830-4d92-92e5-a1dcba682a6f",
+  "id": "0e1fddaf-032b-42d1-9ff7-994be0aacb22",
   "revision": 0,
   "nodes": [
     {
@@ -68,7 +68,7 @@
         0.7,
         30,
         "",
-        "clauses",
+        "auto",
         300,
         1,
         true,
@@ -266,7 +266,7 @@
         "Node name for S&R": "Note"
       },
       "widgets_values": [
-        "DIRECTION FIELD - paste one example:\nwarm, conversational, relaxed pace\ncalm narrator, clear diction, measured pace\nexcited, playful, energetic\nsad, restrained, speaking softly\nangry, tense, firm delivery\n\nTEXT FIELD - cues next to the words to speak:\n[warm] It is good to see you again.\n[amused] You really did that?\n[angry] I asked you to wait!\n<whisper>Keep this between us.</whisper>\n\nUse direction for delivery across the generated parts; use inline cues to guide individual lines. Speech language follows the text, so these cues can also accompany French, Spanish or Italian dialogue.\nreference_text contains only the words actually spoken in the reference clip. Put new delivery instructions in direction or text. Cue strength varies with the reference and model output."
+        "DIRECTION FIELD - paste one example:\nwarm, conversational, relaxed pace\ncalm narrator, clear diction, measured pace\nexcited, playful, energetic\nsad, restrained, speaking softly\nangry, tense, firm delivery\n\nTEXT FIELD - cues next to the words to speak:\n[warm] It is good to see you again.\n[amused] You really did that?\n[angry] I asked you to wait!\n<whisper>Keep this between us.</whisper>\n\nUse direction for delivery across the generated parts; use inline cues to guide individual lines. Speech language follows the text, so these cues can also accompany French, Spanish or Italian dialogue.\nFor smoother monologues, start with chunk_mode=auto and chunk_bytes=300. clauses splits at punctuation and can create frequent pauses; reserve it for early-stop problems.\nreference_text contains only the words actually spoken in the reference clip. Put new delivery instructions in direction or text. Cue strength varies with the reference and model output."
       ]
     }
   ],
