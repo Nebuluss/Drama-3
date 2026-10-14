@@ -63,6 +63,7 @@ Copy `examples/Drama3_demo_*` into `ComfyUI/input`, then restart ComfyUI. Open *
 |---|---|
 | [Basic speech](workflows/Drama3-FP8-Workflow.json) | Quick start |
 | [Voice cloning](workflows/Drama3-Voice-Cloning-Workflow.json) | One reference and exact transcript |
+| [Voice cloning with Whisper](workflows/Drama3-Whisper-Voice-Cloning.json) | Automatically transcribe the reference with comfy_mtb, then feed it to Drama 3 |
 | [Multiple voices](workflows/Drama3-Multi-Voice-Dialogue.json) | Two references and a speaker-tagged conversation |
 | [French cloning](workflows/Drama3-French-Cloning.json) | French speech from a reference voice |
 | [Spanish cloning](workflows/Drama3-Spanish-Cloning.json) | Spanish speech from a reference voice |
@@ -90,6 +91,10 @@ Every workflow contains a short usage note. The two default reference clips are 
 ```
 
 For each Voice Reference, provide the clip's **actual words** and its speaker ID. Connect the references to Voice Bank; its inputs grow as you add voices. Multiple clips may share a speaker ID. The model's 0–15 speaker tags are distinct from the number of reference clips.
+
+The optional **Whisper cloning workflow** requires [comfy_mtb](https://github.com/melMass/comfy_mtb) and a full Whisper `large` checkpoint in `ComfyUI/models/whisper/whisper-large`. It uses **Load Whisper (mtb) → Audio To Text (mtb)**. The same Load Audio output feeds both transcription and `reference_audio`; the transcription's first `STRING` output feeds `reference_text`. Keep your new speech in `text`. To wire this manually, right-click the Speech node and choose **Convert Widget to Input → reference_text**. The preset uses French (`fr`), no timestamps and `download_missing=False`; select the language and installed model you need. WanVideoWrapper's Whisper Model Loader supplies encoder features rather than a transcript and cannot replace this pair.
+
+After updating the extension, **restart the ComfyUI process**, then reload the workflow. Refreshing the browser does not load updated Python nodes. If `max_frames=0` is rejected or an empty runtime path resolves to the ComfyUI directory, an older node is still loaded. The installer configures the runtime in `runtime.json`; `runtime_folder` can override it. Whisper connections were checked against the installed node schemas; its dependency is optional for other Drama 3 workflows.
 
 `direction` applies a delivery cue to each generated part. Cues guide the model; they do not guarantee a particular emotion, accent, speaker identity, or word-perfect reading.
 

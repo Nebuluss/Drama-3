@@ -13,6 +13,10 @@ Integration ComfyUI non officielle de Fish Audio Drama 3, avec les poids FP8 d'o
 
 Pour cloner une voix, `reference_text` doit transcrire exactement `reference_audio`. Le champ `text` contient les nouvelles phrases. Pour plusieurs voix, utilisez Voice Reference et Voice Bank, puis les balises `<|speaker:0|>`, `<|speaker:1|>`, etc.
 
+Le [workflow de clonage avec Whisper](workflows/Drama3-Whisper-Voice-Cloning.json) transcrit la reference automatiquement avec **Load Whisper (mtb) → Audio To Text (mtb)**, du pack [comfy_mtb](https://github.com/melMass/comfy_mtb). Il attend un modele Whisper complet dans `ComfyUI/models/whisper/whisper-large`, utilise `large`, `fr`, sans timestamps et sans telechargement. Le meme audio alimente Whisper et `reference_audio` ; la sortie `STRING` va a `reference_text`. Pour creer cette entree manuellement : clic droit sur Drama 3 → Convert Widget to Input → reference_text. Le Whisper Model Loader de WanVideo ne produit pas de transcription.
+
+Apres une mise a jour des nodes, arretez puis redemarrez **le processus ComfyUI**, puis rechargez le workflow. Un rafraichissement du navigateur ne suffit pas. Une erreur qui refuse `max_frames=0` ou cherche le runtime dans le dossier ComfyUI indique qu'une ancienne version du node est encore chargee. Le runtime est configure dans `runtime.json`, ou explicitement dans `runtime_folder`.
+
 Pour un dialogue, choisissez `chunk_mode=speakers` : chaque replique utilise uniquement les references de son personnage, sans historique audio des autres voix, puis les repliques sont assemblees. Le modele est charge une seule fois. Le mode `single` peut s'arreter apres la premiere replique meme avec une fin EOS normale.
 
 Les indications entre crochets et le champ `direction` guident le jeu. La langue depend du texte. Des exemples francais, espagnol et italien sont fournis, ainsi qu'un dialogue avec deux references et des variations de jeu.
