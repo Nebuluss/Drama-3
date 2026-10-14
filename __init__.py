@@ -102,7 +102,7 @@ class Drama3FP8Speech:
             if 'progress' in event:
                 progress.update_absolute(round(event['progress'] * 1000))
             if client_id is not None:
-                PromptServer.instance.send_sync('drama3.preview', event | {'node_id': str(unique_id), 'session': session}, sid=client_id)
+                PromptServer.instance.send_sync('drama3.preview', event | {'node_id': str(unique_id), 'session': session, 'streaming': streaming}, sid=client_id)
 
         with tempfile.TemporaryDirectory(prefix='drama3_', dir=str(temp_root), ignore_cleanup_errors=True) as temp:
             temp = Path(temp)

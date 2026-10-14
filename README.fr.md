@@ -25,6 +25,8 @@ Si le modele s'arrete apres une virgule, essayez `chunk_mode=clauses`. Chaque pr
 
 `streaming=True` active la previsualisation progressive ; cliquez Enable live listening dans le node. Le chargement reste necessaire et la lecture peut attendre entre les blocs.
 
+Activez `streaming=True` **avant Run**. Le bouton Enable live listening autorise seulement la lecture ; il ne change pas une generation deja lancee. Avec `streaming=False`, le lecteur live ne recoit aucun bloc et le fichier final arrive a la fin.
+
 La sortie `take` permet de reprendre une prise ou d'en guider une nouvelle. Save Take conserve les codes, textes et references encodees ; Load Take les recharge depuis `ComfyUI/input`. La redirection regenere une prise complete. Le workflow de remplacement d'un passage effectue un montage manuel ; l'inpainting automatique mot par mot n'est pas expose par le code public.
 
 Voir [LICENSE](LICENSE) et [NOTICE](NOTICE) pour les conditions et l'attribution du modele.

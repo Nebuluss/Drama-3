@@ -15,10 +15,11 @@ app.registerExtension({
             status.textContent = 'Progressive preview: enable streaming to hear parts while generating.';
             const button = document.createElement('button');
             button.textContent = 'Enable live listening';
+            button.title = 'Controls playback only. Set streaming=True before Run to generate live audio blocks.';
             const player = document.createElement('audio');
             player.controls = true;
             player.style.cssText = 'width:100%;height:32px';
-            const state = { status, player, button, enabled: false, queue: [], session: null };
+            const state = { status, player, button, enabled: false, queue: [], session: null, streaming: null };
             const playNext = () => {
                 if (!state.enabled || !state.queue.length) return;
                 player.src = state.queue.shift();
@@ -47,11 +48,14 @@ api.addEventListener('drama3.preview', ({ detail }) => {
     if (!state) return;
     if (state.session !== detail.session) {
         state.session = detail.session;
+        state.streaming = null;
         state.queue = [];
         state.player.pause();
         state.player.removeAttribute('src');
     }
-    if (detail.stage) state.status.textContent = detail.stage;
+    if (typeof detail.streaming === 'boolean') state.streaming = detail.streaming;
+    if (detail.stage) state.status.textContent = detail.stage + (state.streaming === false
+        ? ' — Live audio is off for this run. Set streaming=True before the next Run.' : '');
     if (!detail.audio) return;
     const params = new URLSearchParams({ filename: detail.audio, type: 'temp', subfolder: detail.subfolder || '' });
     const url = api.apiURL('/view?' + params);
